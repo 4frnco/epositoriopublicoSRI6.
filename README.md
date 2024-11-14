@@ -232,3 +232,30 @@ echo "nameserver 8.8.8.8" > /etc/resolv.conf
 apk add --no-cache bind-tools
 ```
 
+## 7. Resultado del `dig` a `google.com`
+
+Dentro del contenedor `cliente`, ejecuta:
+
+```
+dig google.com
+```
+
+La salida debería ser algo como lo siguiente:
+
+```
+; <<>> DiG 9.18.27 <<>> google.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 40302
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+;; QUESTION SECTION:
+;google.com.			IN	A
+;; ANSWER SECTION:
+google.com.		177	IN	A	142.250.200.110
+```
+
+Además, puedes realizar un ping a `google.com` para verificar la conectividad:
+
+```
+ping google.com
+```
