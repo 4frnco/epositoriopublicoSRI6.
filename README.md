@@ -128,5 +128,51 @@ La salida debe ser similar a la siguiente:
     "Labels": {}
 }
 ```
+## 4. Ficheros de Configuración de Docker
+
+### 4.1. Configuración de Zona Local
+
+Crea el archivo `named.conf.local` con la siguiente configuración:
+
+```
+zone "33asircastelao.int" {
+    type master;
+    file "/var/lib/bind/db.33asircastelao.int";
+    allow-query {
+        any;
+    };
+};
+```
+
+### 4.2. Zonas por Defecto
+
+Crea el archivo `named.conf.default-zones` con la siguiente configuración:
+
+```
+zone "." {
+    type hint;
+    file "/usr/share/dns/root.hints";
+};
+
+zone "localhost" {
+    type master;
+    file "/etc/bind/db.local";
+};
+
+zone "127.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.127";
+};
+
+zone "0.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.0";
+};
+
+zone "255.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.255";
+};
+```
 
 
