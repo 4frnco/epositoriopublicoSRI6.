@@ -201,3 +201,18 @@ $TTL    604800
 1       IN      PTR     localhost.
 ```
 
+## 5. Iniciar `docker-compose`
+
+Inicia el contenedor con Docker Compose con el siguiente comando:
+
+```
+docker-compose up -d
+```
+
+Este comando levantará los contenedores, pero si hay algún error como el siguiente:
+
+```
+Error response from daemon: driver failed programming external connectivity on endpoint asir_bind9: Error starting userland proxy: listen tcp4 0.0.0.0:53: bind: address already in use
+```
+
+Es posible que el puerto 53 ya esté en uso en tu máquina.
