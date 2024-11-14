@@ -216,3 +216,19 @@ Error response from daemon: driver failed programming external connectivity on e
 ```
 
 Es posible que el puerto 53 ya esté en uso en tu máquina.
+
+## 6. Inicio de Contenedor Cliente e Instalación de Git y Bind
+
+Accede al contenedor `cliente` y realiza la configuración de DNS:
+
+```
+docker exec cliente sh
+```
+
+Dentro del contenedor, agrega el servidor DNS y instala las herramientas necesarias:
+
+```
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
+apk add --no-cache bind-tools
+```
+
