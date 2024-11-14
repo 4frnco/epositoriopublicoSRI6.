@@ -49,5 +49,43 @@ Esto te mostrará la configuración de la red, que debe verse algo similar a lo 
     }
 ]
 ```
+## 2. Configuración Final del Archivo `docker-compose.yml`
+
+Crea el archivo `docker-compose.yml` con la siguiente configuración:
+
+```
+version: '3.8'
+
+services:
+  33asir_bind9:
+    container_name: 33asir_bind9
+    image: ubuntu/bind9
+    platform: linux/amd64
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    networks:
+      bind9_subnet:
+        ipv4_address: 192.168.15.1
+    volumes:
+      - ./conf:/etc/bind
+      - ./zonas:/var/lib/bind
+
+  cliente:
+    container_name: cliente
+    image: alpine
+    platform: linux/amd64
+    tty: true
+    stdin_open: true
+    dns:
+      - 192.168.15.1
+    networks:
+      bind9_subnet:
+        ipv4_address: 192.168.15.2
+
+networks:
+  bind9_subnet:
+    external: true
+```
 
 
