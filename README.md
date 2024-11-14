@@ -175,4 +175,29 @@ zone "255.in-addr.arpa" {
 };
 ```
 
+### 4.3. Archivo `named.conf`
+
+Crea el archivo `named.conf` con la siguiente configuración:
+
+```
+include "/etc/bind/named.conf.options";
+include "/etc/bind/named.conf.local";
+```
+
+### 4.4. Archivo `db.127`
+
+Crea el archivo `db.127` con el siguiente contenido:
+
+```
+$TTL    604800
+@       IN      SOA     localhost. root.localhost. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      localhost.
+1       IN      PTR     localhost.
+```
 
