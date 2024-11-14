@@ -87,5 +87,46 @@ networks:
   bind9_subnet:
     external: true
 ```
+## 3. Fichero `bind9_subnet.json`
+
+Verifica la configuración de la red con el siguiente comando:
+
+```
+cat bind9_subnet.json
+```
+
+La salida debe ser similar a la siguiente:
+
+```
+{
+    "Name": "bind9_subnet",
+    "Id": "bd54d0ecc242f9d9ba4ef483a44a2221fcfdb09663886afc21a3b5c167dc5a11",
+    "Created": "2023-10-10T06:28:58.162307359Z",
+    "Scope": "local",
+    "Driver": "bridge",
+    "EnableIPv6": false,
+    "IPAM": {
+        "Driver": "default",
+        "Options": {},
+        "Config": [
+            {
+                "Subnet": "192.168.10.0/16",
+                "IPRange": "192.168.15.0/24",
+                "Gateway": "192.168.15.254"
+            }
+        ]
+    },
+    "Internal": false,
+    "Attachable": false,
+    "Ingress": false,
+    "ConfigFrom": {
+        "Network": ""
+    },
+    "ConfigOnly": false,
+    "Containers": {},
+    "Options": {},
+    "Labels": {}
+}
+```
 
 
