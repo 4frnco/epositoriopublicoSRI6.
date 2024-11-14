@@ -259,3 +259,27 @@ Además, puedes realizar un ping a `google.com` para verificar la conectividad:
 ```
 ping google.com
 ```
+
+## 8. Resultados Finales
+
+Verifica la resolución del nombre de dominio personalizado `33asircastelao.int` con el siguiente comando:
+
+```
+dig @192.168.15.1 33asircastelao.int
+```
+
+La salida debería ser algo como:
+
+```
+; <<>> DiG 9.18.27 <<>> 33asircastelao.int
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, ...
+;; QUESTION SECTION:
+;33asircastelao.int.          IN  A
+;; ANSWER SECTION:
+33asircastelao.int.    604800  IN  A   192.168.15.1
+```
+
+--- 
+
